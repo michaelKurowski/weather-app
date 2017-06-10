@@ -18,14 +18,20 @@ gulp.task('sass -> css', () => {
 		.pipe(gulp.dest('../dev/public/css'))
 })
 
+gulp.task('copy', () => {
+	return gulp.src('./**/*.json')
+		.pipe(gulp.dest('../dev'))
+})
+
+
 gulp.task('js -> babel', () => {
-	return gulp.src('./public/js/**/*.js')
+	return gulp.src(['./public/js/**/*.js'])
 		.pipe(babel({presets: ['es2015']}))
 		.pipe(gulp.dest('../dev/public/js'))
 })
 
 gulp.task('lint', () => {
-	return gulp.src('./public/js/**/*.js')
+	return gulp.src(['./public/js/**/*.js'])
 		.pipe(eslint())
 		.pipe(eslint.format())
 		.pipe(eslint.failAfterError())
@@ -40,8 +46,12 @@ gulp.task('watch:sass', () => {
 })
 
 gulp.task('watch:js', () => {
-	gulp.watch('./public/js/**/*.js', ['lint', 'js -> babel'])
+	gulp.watch(['./public/js/**/*.js'], ['lint', 'js -> babel'])
 })
+gulp.task('watch:copy', () => {
+	gulp.watch('./**/*.json', ['copy'])
+})
+
 
 gulp.task('default', function () {
 	gulp.start(
@@ -49,8 +59,10 @@ gulp.task('default', function () {
 		'js -> babel', 
 		'sass -> css', 
 		'pug -> html',
+		'copy',
 		'watch:pug',
 		'watch:sass',
-		'watch:js'
+		'watch:js',
+		'watch:copy'
 	)
 })

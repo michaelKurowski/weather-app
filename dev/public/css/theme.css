@@ -5816,4 +5816,5 @@ button.close {
 
 body {
   background: silver;
-  color: #222222; }
+  color: #222222;
+  margin: 0px auto; }

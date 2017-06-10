@@ -1,5 +1,2 @@
-const app = angular.module('weatherApp', ['ngRoute'])
+const app = angular.module('weatherApp', ['ngRoute', 'ngResource'])
 
-app.controller('mainController', ['$scope', function($scope) {
-	$scope.title = 'Weather App name'
-}])

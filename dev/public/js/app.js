@@ -1,7 +1,3 @@
 'use strict';
 
-var app = angular.module('weatherApp', ['ngRoute']);
-
-app.controller('mainController', ['$scope', function ($scope) {
-	$scope.title = 'Weather App name';
-}]);
+var app = angular.module('weatherApp', ['ngRoute', 'ngResource']);

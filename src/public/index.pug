@@ -2,18 +2,27 @@ head
 	title
 		| Weather App
 
-	script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js')
-	script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-resource.min.js')
-	script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js')
+	script(src='https://code.angularjs.org/1.6.4/angular.min.js')
+	script(src='https://code.angularjs.org/1.6.4/angular-resource.min.js')
+	script(src='https://code.angularjs.org/1.6.4/angular-route.min.js')
 
 	script(src='https://code.jquery.com/jquery-3.2.1.min.js')
 	script(src='bootstrap-sass/assets/javascripts/bootstrap.min.js')
 	link(rel='stylesheet', href='styles/theme.css')
 	
 	script(src='js/app.js')
-body(ng-app='weatherApp' ng-controller='mainController')
+	script(src='js/routeProvider.js')
+	script(src='js/controllers/main.js')
+	script(src='js/controllers/forecast.js')
+	script(src='js/controllers/index.js')
+	script(src='js/services/dataHolder.js')
+
+body(ng-app='weatherApp' ng-controller='indexController' class='container-fluid')
 	header
 		h1(ng-cloak)
 			| {{title}}
-	
+	.row
+		.col-md-10
+			.jumbotron
+				ng-view
 	
