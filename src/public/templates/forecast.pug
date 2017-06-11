@@ -1,5 +1,23 @@
 div
 	h2
 		| Forecast for {{city}}
+	|Amount of days:
+	a(href='#!/forecast/2' ng-class='days == 2 ? \'bg-primary\' : \'bg-secondary\'')
+		| 2
+	|, 
+	a(href='#!/forecast/7' ng-class='days == 7 ? \'bg-primary\' : \'bg-secondary\'')
+		| 7
+	|, 
+	a(href='#!/forecast/10' ng-class='days == 10 ? \'bg-primary\' : \'bg-secondary\'')
+		| 10
+	hr
+	div(ng-repeat='day in weatherData')
+		.row.panel.panel-default
+			.col-md-2-offset.col-md-3
+				h3.panel-heading
+					| {{day.day}}
+			.col-md-6
+				h3
+					| Day temperature: {{day.temperature}}C, Weather: {{day.status}}
 	a(ng-href='#!/' class='btn btn-primary')
 			|Go back
