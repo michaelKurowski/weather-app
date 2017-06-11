@@ -1,4 +1,4 @@
 src/node_modules
-src/config/config.js
+src/public/js/config/config.js
 dev/
 prod/
